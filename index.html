@@ -358,10 +358,16 @@
                 position = $(this).position()['left'];
                 e.stopPropagation();
                 data = '.' + $(this).attr('data');
-                if(width>1000){
-                    position = position - 0.05*width;
+                if(width>567) {
+                    if(width>1000){
+                        position = position - 0.05*width;
+                    }
+                    $(data).css('transform', 'translate('+ position +'px, 45px)');
                 }
-                $(data).css('transform', 'translate('+ position +'px, 45px)');
+                else {
+                    $(data).css('width', '100vw');
+                    $(data).css('transform', 'translateY(45px)');
+                }
                 $(data).show();
             })
             $(document).click(function(){
